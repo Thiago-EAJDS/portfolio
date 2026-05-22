@@ -1,60 +1,896 @@
-<!-- 
-    Se eu tiver algum link que, ao clicar, não estiver funcionando, tipo Instagram, 
-    é porque eu não tenho conta para linkar kkkkkkk, e não porque não está funcionando.
--->
-
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="pt-BR" data-theme="dark">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Portfólio Thiago</title>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <link rel="stylesheet" href="../css/global.css">
-    <link rel="stylesheet" href="../css/index.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Portfólio de Thiago Emanuel Araújo Jorge de Sá — Desenvolvedor Full Stack." />
+  <title>Thiago Emanuel — Portfólio</title>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+
+  <!-- CSS -->
+  <link rel="stylesheet" href="css/global.css" />
+  <link rel="stylesheet" href="css/navbar.css" />
+  <link rel="stylesheet" href="css/home.css" />
+  <link rel="stylesheet" href="css/sections.css" />
+
+  <!-- Prevent flash of wrong theme -->
+  <script>
+    (function() {
+      const t = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', t);
+    })();
+  </script>
 </head>
 <body>
-    <div class="container">
-        <nav class="nav">
-            <a href="../index.html" class="nav-link active">Início</a>
-            <a href="../sobreMim/sobreMim.html" class="nav-link">Sobre Mim</a>
-            <a href="../tecnologias/tecnologias.html" class="nav-link">Tecnologias</a>
-            <a href="../projetos/projetos.html" class="nav-link">Projetos</a>
-            <a href="../experiencias/experiencias.html" class="nav-link">Experiências</a>
-        </nav>
 
+<!-- =============================================
+     BACKGROUND CANVAS
+     ============================================= -->
+<canvas id="bg-canvas" aria-hidden="true"></canvas>
+
+<!-- =============================================
+     NAVBAR
+     ============================================= -->
+<nav class="navbar" id="navbar" role="navigation" aria-label="Navegação principal">
+  <div class="container">
+    <a href="#inicio" class="nav-logo" aria-label="Início">
+      &lt; <span>TE</span> /&gt;
+    </a>
+
+    <ul class="nav-links" id="nav-links" role="list">
+      <li><a href="#inicio" class="active" aria-current="page">Início</a></li>
+      <li><a href="#sobre">Sobre Mim</a></li>
+      <li><a href="#tecnologias">Tecnologias</a></li>
+      <li><a href="#projetos">Projetos</a></li>
+      <li><a href="#experiencias">Experiências</a></li>
+    </ul>
+
+    <div class="nav-controls">
+      <button
+        class="theme-toggle"
+        id="theme-toggle"
+        aria-label="Alternar modo claro/escuro"
+        title="Alternar tema"
+      >
+        <span class="theme-icon moon" aria-hidden="true">🌙</span>
+        <span class="theme-icon sun" aria-hidden="true">☀️</span>
+      </button>
+      <button class="nav-menu-btn" id="nav-menu-btn" aria-label="Abrir menu" aria-expanded="false">
+        <svg width="18" height="18" viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round">
+          <line x1="2" y1="4.5" x2="16" y2="4.5"/>
+          <line x1="2" y1="9" x2="16" y2="9"/>
+          <line x1="2" y1="13.5" x2="16" y2="13.5"/>
+        </svg>
+      </button>
+    </div>
+  </div>
+</nav>
+
+<!-- =============================================
+     PAGE CONTENT
+     ============================================= -->
+<div id="page-content">
+
+  <!-- ==========================================
+       SECTION: INÍCIO
+       ========================================== -->
+  <section id="inicio" class="section" aria-label="Início">
+    <div class="container">
+      <div class="home-grid">
+
+        <!-- Left: Content -->
         <div class="home-content">
-            <div class="name">
-                <span class="invisible">&lt; Thiago Emanuel Araújo Jorge de Sá / &gt;</span>
-                <span id="typed-name">
-                    &lt;&nbsp;<span id="display-name"></span>&nbsp;
-                    <span class="cursor" id="cursor">/ </span>
-                    &gt;
-                </span>
-            </div>
-            <div class="icons">
-                <a href="https://www.linkedin.com/in/thiago-ara%C3%BAjo-2005ab369/" target="_blank" rel="noopener noreferrer" class="icon">
-                    <i class="fab fa-linkedin"></i>
-                </a>
-                <a href="https://github.com/Thiago-EAJDS" target="_blank" rel="noopener noreferrer" class="icon">
-                    <i class="fab fa-github"></i>
-                </a>
-                <a href="https://instagram.com" target="_blank" rel="noopener noreferrer" class="icon">
-                    <i class="fab fa-instagram"></i>
-                </a>
-                <a href="mailto:thiagoeajds@gmail.com" target="_blank" rel="noopener noreferrer" class="icon">
-                    <i class="fas fa-envelope"></i>
-                </a>
-            </div>
-            <div>
-                 <div class="photo">
-                 <img src="../assets/ftoperfil.jpeg" alt="Thiago Emanuel" id="profile-photo"> 
-                </div>
-</div>
+          <div class="home-greeting fade-in">
+            <span class="home-greeting-dot" aria-hidden="true"></span>
+            <span>Disponível para oportunidades</span>
+          </div>
+
+          <h1 class="home-name fade-in">
+            Thiago<br />
+            <span class="highlight">Emanuel</span>
+          </h1>
+
+          <p class="home-role fade-in">Desenvolvedor Full Stack</p>
+
+          <p class="home-bio fade-in">
+            Apaixonado por tecnologia e inovação, criando soluções digitais
+            modernas com foco em código limpo, usabilidade e impacto real.
+            Baseado em Teresina, PI.
+          </p>
+
+          <!-- Social Links -->
+          <div class="home-socials fade-in" aria-label="Redes sociais">
+            <a
+              href="https://www.linkedin.com/in/thiago-araújo-2005ab369/"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              aria-label="LinkedIn"
+              title="LinkedIn"
+            >
+              <!-- LinkedIn SVG -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+              </svg>
+            </a>
+            <a
+              href="https://github.com/Thiago-EAJDS"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              aria-label="GitHub"
+              title="GitHub"
+            >
+              <!-- GitHub SVG -->
+              <svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/>
+              </svg>
+            </a>
+            <a
+              href="https://instagram.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              class="social-link"
+              aria-label="Instagram"
+              title="Instagram"
+            >
+              <!-- Instagram SVG -->
+              <!--<svg viewBox="0 0 24 24" aria-hidden="true">
+                <path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838a6.162 6.162 0 1 0 0 12.324 6.162 6.162 0 0 0 0-12.324zM12 16a4 4 0 1 1 0-8 4 4 0 0 1 0 8zm6.406-11.845a1.44 1.44 0 1 0 0 2.881 1.44 1.44 0 0 0 0-2.881z"/>
+              </svg>
+            </a>
+            <a
+              href="mailto:thiagoeajds@gmail.com"
+              class="social-link"
+              aria-label="E-mail"
+              title="E-mail"
+            >-->
+              <!-- Mail SVG -->
+              <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+                <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4-8 5-8-5V6l8 5 8-5v2z"/>
+              </svg>
+            </a>
+          </div>
+
+          <!-- CTAs -->
+          <div class="home-cta fade-in">
+            <a href="#projetos" class="btn btn-primary">
+              Ver Projetos
+              <svg width="14" height="14" viewBox="0 0 14 14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M1 7h12M7 1l6 6-6 6"/>
+              </svg>
+            </a>
+            <a href="mailto:thiagoeajds@gmail.com" class="btn btn-outline">
+              Entrar em contato
+            </a>
+          </div>
         </div>
+
+        <!-- Right: Photo -->
+        <div class="home-photo-wrap fade-in">
+          <div class="home-photo-container">
+            <div class="home-photo-frame">
+              <img
+                src="assets/ftoperfil.jpeg"
+                alt="Thiago Emanuel — foto de perfil"
+                loading="eager"
+              />
+            </div>
+            <div class="home-photo-deco" aria-hidden="true"></div>
+            </div>
+          </div>
+        </div>
+
+      </div>
     </div>
 
-    <script src="../js/script.js"></script>
-    <script src="../js/home.js"></script>
+    <!-- Scroll indicator -->
+    <div class="scroll-indicator" aria-hidden="true">
+      <span>scroll</span>
+      <svg viewBox="0 0 20 20" fill="none" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+        <path d="M10 3v14M4 11l6 6 6-6"/>
+      </svg>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SECTION: SOBRE MIM
+       ========================================== -->
+  <section id="sobre" class="section" aria-label="Sobre mim">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Quem sou</span>
+        <h2 class="section-title">Sobre <span>Mim</span></h2>
+        <div class="section-divider" aria-hidden="true"></div>
+      </div>
+
+      <div class="sobre-grid">
+
+        <!-- Photo -->
+        <div class="sobre-photo-wrap fade-in">
+          <div class="sobre-photo-frame">
+            <img
+              src="assets/images/thiago-full.jpg"
+              alt="Thiago Emanuel — foto completa"
+              loading="lazy"
+            />
+          </div>
+          <div class="sobre-photo-deco" aria-hidden="true"></div>
+        </div>
+
+        <!-- Content -->
+        <div class="sobre-content">
+          <div class="sobre-bio fade-in">
+            <p>
+              Olá! Eu sou <strong>Thiago Emanuel Araújo Jorge de Sá</strong>, um desenvolvedor
+              apaixonado por tecnologia e inovação. Com experiência sólida em desenvolvimento
+              web, tenho dedicado minha carreira a criar soluções digitais que fazem a diferença
+              na vida das pessoas.
+            </p>
+            <p>
+              Minha jornada na programação começou há dois anos, e desde então venho me
+              especializando em desenvolvimento full stack, com foco em tecnologias modernas e
+              práticas de desenvolvimento ágil, entretanto, estou aberto à quaisqueres oportunidades
+              de aprendizado e evolução. Acredito que a programação é uma forma de arte
+              onde criatividade e lógica se encontram para resolver problemas reais.
+            </p>
+            <p>
+              Quando não estou codando, gosto de me manter atualizado com as últimas tendências
+              em tecnologia, contribuir para projetos open source e compartilhar conhecimento com
+              a comunidade de desenvolvedores.
+            </p>
+          </div>
+
+          <p class="sobre-skills-title fade-in">Principais Competências</p>
+
+          <div class="sobre-skills-grid fade-in">
+            <div class="sobre-skill-group">
+              <h4>Linguagens</h4>
+              <ul>
+                <li>JavaScript / TS</li>
+                <li>Python</li>
+                <li>Java</li>
+                <li>PHP</li>
+                <li>C / C++</li>
+              </ul>
+            </div>
+            <div class="sobre-skill-group">
+              <h4>Frontend</h4>
+              <ul>
+                <li>React.js</li>
+                <li>HTML5</li>
+                <li>CSS3</li>
+                <li>JavaFX</li>
+              </ul>
+            </div>
+            <div class="sobre-skill-group">
+              <h4>Backend</h4>
+              <ul>
+                <li>Node.js</li>
+                <li>RESTful APIs</li>
+                <li>MySQL</li>
+                <li>PostgreSQL</li>
+                <li>Firebase</li>
+              </ul>
+            </div>
+            <div class="sobre-skill-group">
+              <h4>Ferramentas</h4>
+              <ul>
+                <li>Git / GitHub</li>
+                <li>VS Code</li>
+                <li>Postman</li>
+                <li>Figma</li>
+              </ul>
+            </div>
+            <div class="sobre-skill-group">
+              <h4>Cloud & DevOps</h4>
+              <ul>
+                <li>AWS</li>
+                <li>Linux</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="sobre-contact fade-in">
+            <span class="sobre-contact-label">Vamos conversar?</span>
+            <a href="mailto:thiagoeajds@gmail.com" class="btn btn-primary">E-mail</a>
+            <a href="https://www.linkedin.com/in/thiago-araújo-2005ab369/" target="_blank" rel="noopener noreferrer" class="btn btn-primary">LinkedIn</a>
+            <a href="https://github.com/Thiago-EAJDS" target="_blank" rel="noopener noreferrer" class="btn btn-primary">GitHub</a>
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SECTION: TECNOLOGIAS
+       ========================================== -->
+  <section id="tecnologias" class="section" aria-label="Tecnologias e habilidades">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">O que uso</span>
+        <h2 class="section-title">Tecnologias &amp; <span>Habilidades</span></h2>
+        <div class="section-divider" aria-hidden="true"></div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs" role="tablist" aria-label="Filtrar tecnologias">
+        <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">Todas</button>
+        <button class="filter-tab" data-filter="frontend" role="tab" aria-selected="false">Frontend</button>
+        <button class="filter-tab" data-filter="backend" role="tab" aria-selected="false">Backend</button>
+        <button class="filter-tab" data-filter="database" role="tab" aria-selected="false">Database</button>
+        <button class="filter-tab" data-filter="tools" role="tab" aria-selected="false">Ferramentas</button>
+        <button class="filter-tab" data-filter="cloud" role="tab" aria-selected="false">Cloud</button>
+      </div>
+
+      <!-- Tech Cards Grid -->
+      <!--
+        Nível: dots (1-5)
+          Iniciante    = 2 dots
+          Intermediário = 3 dots
+          Avançado     = 5 dots
+      -->
+      <div class="tech-grid" role="list" aria-label="Lista de tecnologias">
+
+        <!-- Frontend -->
+        <article class="tech-card fade-in" data-category="frontend" role="listitem" aria-label="React — Iniciante">
+          <span class="tech-icon" aria-hidden="true">⚛️</span>
+          <span class="tech-name">React</span>
+          <div class="tech-level" aria-label="Nível: Iniciante">
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot"></span>
+            <span class="tech-level-dot"></span>
+            <span class="tech-level-dot"></span>
+          </div>
+          <span class="tech-level-label">Iniciante</span>
+        </article>
+
+        <article class="tech-card fade-in" data-category="frontend" role="listitem" aria-label="JavaScript — Avançado">
+          <span class="tech-icon" aria-hidden="true">🟨</span>
+          <span class="tech-name">JavaScript</span>
+          <div class="tech-level" aria-label="Nível: Avançado">
+            <span class="tech-level-dot filled high"></span>
+            <span class="tech-level-dot filled high"></span>
+            <span class="tech-level-dot filled high"></span>
+            <span class="tech-level-dot filled high"></span>
+            <span class="tech-level-dot filled high"></span>
+          </div>
+          <span class="tech-level-label">Avançado</span>
+        </article>
+
+        <article class="tech-card fade-in" data-category="frontend" role="listitem" aria-label="HTML5 — Avançado">
+          <span class="tech-icon" aria-hidden="true">🌐</span>
+          <span class="tech-name">HTML5</span>
+          <div class="tech-level" aria-label="Nível: Avançado">
+            <span class="tech-level-dot filled high"></span>
+            <span class="tech-level-dot filled high"></span>
+            <span class="tech-level-dot filled high"></span>
+            <span class="tech-level-dot filled high"></span>
+            <span class="tech-level-dot filled high"></span>
+          </div>
+          <span class="tech-level-label">Avançado</span>
+        </article>
+
+        <article class="tech-card fade-in" data-category="frontend" role="listitem" aria-label="CSS3 — Avançado">
+          <span class="tech-icon" aria-hidden="true">🎨</span>
+          <span class="tech-name">CSS3</span>
+          <div class="tech-level" aria-label="Nível: Avançado">
+            <span class="tech-level-dot filled high"></span>
+            <span class="tech-level-dot filled high"></span>
+            <span class="tech-level-dot filled high"></span>
+            <span class="tech-level-dot filled high"></span>
+            <span class="tech-level-dot filled high"></span>
+          </div>
+          <span class="tech-level-label">Avançado</span>
+        </article>
+
+        <article class="tech-card fade-in" data-category="frontend" role="listitem" aria-label="JavaFX — Iniciante">
+          <span class="tech-icon" aria-hidden="true">🖥️</span>
+          <span class="tech-name">JavaFX</span>
+          <div class="tech-level" aria-label="Nível: Iniciante">
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot"></span>
+            <span class="tech-level-dot"></span>
+            <span class="tech-level-dot"></span>
+          </div>
+          <span class="tech-level-label">Iniciante</span>
+        </article>
+
+        <!-- Backend -->
+        <article class="tech-card fade-in" data-category="backend" role="listitem" aria-label="Node.js — Iniciante">
+          <span class="tech-icon" aria-hidden="true">🟢</span>
+          <span class="tech-name">Node.js</span>
+          <div class="tech-level" aria-label="Nível: Iniciante">
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot"></span>
+            <span class="tech-level-dot"></span>
+            <span class="tech-level-dot"></span>
+          </div>
+          <span class="tech-level-label">Iniciante</span>
+        </article>
+
+        <article class="tech-card fade-in" data-category="backend" role="listitem" aria-label="Python — Intermediário">
+          <span class="tech-icon" aria-hidden="true">🐍</span>
+          <span class="tech-name">Python</span>
+          <div class="tech-level" aria-label="Nível: Intermediário">
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot"></span>
+            <span class="tech-level-dot"></span>
+          </div>
+          <span class="tech-level-label">Intermediário</span>
+        </article>
+
+        <article class="tech-card fade-in" data-category="backend" role="listitem" aria-label="Java — Intermediário">
+          <span class="tech-icon" aria-hidden="true">☕</span>
+          <span class="tech-name">Java</span>
+          <div class="tech-level" aria-label="Nível: Intermediário">
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot"></span>
+            <span class="tech-level-dot"></span>
+          </div>
+          <span class="tech-level-label">Intermediário</span>
+        </article>
+
+        <article class="tech-card fade-in" data-category="backend" role="listitem" aria-label="C/C++ — Iniciante">
+          <span class="tech-icon" aria-hidden="true">⚙️</span>
+          <span class="tech-name">C / C++</span>
+          <div class="tech-level" aria-label="Nível: Iniciante">
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot"></span>
+            <span class="tech-level-dot"></span>
+            <span class="tech-level-dot"></span>
+          </div>
+          <span class="tech-level-label">Iniciante</span>
+        </article>
+
+        <!-- Database -->
+        <article class="tech-card fade-in" data-category="database" role="listitem" aria-label="Firebase — Intermediário">
+          <span class="tech-icon" aria-hidden="true">🔥</span>
+          <span class="tech-name">Firebase</span>
+          <div class="tech-level" aria-label="Nível: Intermediário">
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot"></span>
+            <span class="tech-level-dot"></span>
+          </div>
+          <span class="tech-level-label">Intermediário</span>
+        </article>
+
+        <article class="tech-card fade-in" data-category="database" role="listitem" aria-label="MySQL — Intermediário">
+          <span class="tech-icon" aria-hidden="true">🗄️</span>
+          <span class="tech-name">MySQL</span>
+          <div class="tech-level" aria-label="Nível: Intermediário">
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot"></span>
+            <span class="tech-level-dot"></span>
+          </div>
+          <span class="tech-level-label">Intermediário</span>
+        </article>
+
+        <article class="tech-card fade-in" data-category="database" role="listitem" aria-label="PostgreSQL — Iniciante">
+          <span class="tech-icon" aria-hidden="true">🐘</span>
+          <span class="tech-name">PostgreSQL</span>
+          <div class="tech-level" aria-label="Nível: Iniciante">
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot"></span>
+            <span class="tech-level-dot"></span>
+            <span class="tech-level-dot"></span>
+          </div>
+          <span class="tech-level-label">Iniciante</span>
+        </article>
+
+        <!-- Tools -->
+        <article class="tech-card fade-in" data-category="tools" role="listitem" aria-label="Git — Avançado">
+          <span class="tech-icon" aria-hidden="true">🔀</span>
+          <span class="tech-name">Git</span>
+          <div class="tech-level" aria-label="Nível: Avançado">
+            <span class="tech-level-dot filled high"></span>
+            <span class="tech-level-dot filled high"></span>
+            <span class="tech-level-dot filled high"></span>
+            <span class="tech-level-dot filled high"></span>
+            <span class="tech-level-dot filled high"></span>
+          </div>
+          <span class="tech-level-label">Avançado</span>
+        </article>
+
+        <article class="tech-card fade-in" data-category="tools" role="listitem" aria-label="Figma — Iniciante">
+          <span class="tech-icon" aria-hidden="true">🎭</span>
+          <span class="tech-name">Figma</span>
+          <div class="tech-level" aria-label="Nível: Iniciante">
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot"></span>
+            <span class="tech-level-dot"></span>
+            <span class="tech-level-dot"></span>
+          </div>
+          <span class="tech-level-label">Iniciante</span>
+        </article>
+
+        <!-- Cloud -->
+        <article class="tech-card fade-in" data-category="cloud" role="listitem" aria-label="AWS — Iniciante">
+          <span class="tech-icon" aria-hidden="true">☁️</span>
+          <span class="tech-name">AWS</span>
+          <div class="tech-level" aria-label="Nível: Iniciante">
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot"></span>
+            <span class="tech-level-dot"></span>
+            <span class="tech-level-dot"></span>
+          </div>
+          <span class="tech-level-label">Iniciante</span>
+        </article>
+
+        <article class="tech-card fade-in" data-category="cloud" role="listitem" aria-label="Linux — Intermediário">
+          <span class="tech-icon" aria-hidden="true">🐧</span>
+          <span class="tech-name">Linux</span>
+          <div class="tech-level" aria-label="Nível: Intermediário">
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot filled"></span>
+            <span class="tech-level-dot"></span>
+            <span class="tech-level-dot"></span>
+          </div>
+          <span class="tech-level-label">Intermediário</span>
+        </article>
+
+      </div><!-- /tech-grid -->
+
+      <!-- Tech Summary Table -->
+      <div class="tech-summary fade-in" role="complementary" aria-label="Resumo das tecnologias">
+        <h3 class="tech-summary-title">Visão Geral Rápida</h3>
+
+        <div class="tech-summary-grid">
+          <div class="tech-summary-group">
+            <h4>Frontend</h4>
+            <div class="tech-summary-tags">
+              <span class="tag">React</span>
+              <span class="tag">JavaScript</span>
+              <span class="tag">HTML5</span>
+              <span class="tag">CSS3</span>
+              <span class="tag">JavaFX</span>
+            </div>
+          </div>
+          <div class="tech-summary-group">
+            <h4>Backend</h4>
+            <div class="tech-summary-tags">
+              <span class="tag">Node.js</span>
+              <span class="tag">Python</span>
+              <span class="tag">Java</span>
+              <span class="tag">C / C++</span>
+            </div>
+          </div>
+          <div class="tech-summary-group">
+            <h4>Database</h4>
+            <div class="tech-summary-tags">
+              <span class="tag">Firebase</span>
+              <span class="tag">MySQL</span>
+              <span class="tag">PostgreSQL</span>
+            </div>
+          </div>
+          <div class="tech-summary-group">
+            <h4>Ferramentas</h4>
+            <div class="tech-summary-tags">
+              <span class="tag">Git</span>
+              <span class="tag">Figma</span>
+              <span class="tag">Postman</span>
+              <span class="tag">VS Code</span>
+            </div>
+          </div>
+          <div class="tech-summary-group">
+            <h4>Cloud</h4>
+            <div class="tech-summary-tags">
+              <span class="tag">AWS</span>
+              <span class="tag">Linux</span>
+            </div>
+          </div>
+        </div>
+
+        <!-- Stats -->
+        <div class="tech-stats-row" aria-label="Estatísticas">
+          <div class="tech-stat">
+            <strong data-counter="2">0</strong>
+            <span>Ano de<br>Experiência</span>
+          </div>
+          <div class="tech-stat">
+            <strong data-counter="15">0</strong>
+            <span>Tecnologias<br>Dominadas</span>
+          </div>
+          <div class="tech-stat">
+            <strong data-counter="2">0</strong>
+            <span>Projetos<br>Concluídos</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SECTION: PROJETOS
+       ========================================== -->
+  <section id="projetos" class="section" aria-label="Projetos">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">O que construí</span>
+        <h2 class="section-title">Meus <span>Projetos</span></h2>
+        <div class="section-divider" aria-hidden="true"></div>
+      </div>
+
+      <!-- Filter Tabs -->
+      <div class="filter-tabs" role="tablist" aria-label="Filtrar projetos">
+        <button class="filter-tab active" data-filter="all" role="tab" aria-selected="true">Todos</button>
+        <button class="filter-tab" data-filter="web" role="tab" aria-selected="false">Web</button>
+        <button class="filter-tab" data-filter="backend" role="tab" aria-selected="false">Backend</button>
+        <button class="filter-tab" data-filter="fullstack" role="tab" aria-selected="false">Full-Stack</button>
+        <button class="filter-tab" data-filter="desktop" role="tab" aria-selected="false">Desktop</button>
+      </div>
+
+      <!-- Projects Grid -->
+      <div class="projects-grid" role="list" aria-label="Lista de projetos">
+
+        <!-- Project 1 -->
+        <article class="project-card fade-in" data-category="fullstack" role="listitem" aria-label="Chá e Encantos">
+          <div class="project-card-header">
+            <h3 class="project-title">Chá e Encantos</h3>
+            <span class="project-status">Concluído</span>
+          </div>
+          <p class="project-desc">
+            Site desenvolvido para uma loja de chás como trabalho de faculdade.
+            Inclui catálogo de produtos, carrinho de compras, sistema de pagamento
+            integrado e área administrativa para gerenciamento.
+          </p>
+          <ul class="project-highlights" aria-label="Destaques">
+            <li class="project-highlight">Navegação interativa</li>
+            <li class="project-highlight">Gerenciamento administrativo</li>
+            <li class="project-highlight">Responsivo e otimizado</li>
+          </ul>
+          <div class="project-tags" aria-label="Tecnologias usadas">
+            <span class="tag">Firebase</span>
+            <span class="tag">HTML5</span>
+            <span class="tag">CSS3</span>
+            <span class="tag">JavaScript</span>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/ditimon01/site-cha-e-encantos" target="_blank" rel="noopener noreferrer" class="btn btn-primary" aria-label="Ver código fonte do Simulador de Trânsito">
+              Código
+            </a>
+          </div>
+        </article>
+
+        <!-- Project 2 -->
+        <article class="project-card fade-in" data-category="desktop" role="listitem" aria-label="Simulador de Trânsito">
+          <div class="project-card-header">
+            <h3 class="project-title">Simulador de Trânsito</h3>
+            <span class="project-status">Concluído</span>
+          </div>
+          <p class="project-desc">
+            Simulador de trânsito desenvolvido para trabalho de faculdade utilizando
+            Java e JavaFX. O usuário simula um cenário completo com veículos,
+            semáforos e regras de tráfego.
+          </p>
+          <ul class="project-highlights" aria-label="Destaques">
+            <li class="project-highlight">Interface interativa</li>
+            <li class="project-highlight">Visualmente intuitivo</li>
+            <li class="project-highlight">Simulação controlável</li>
+          </ul>
+          <div class="project-tags" aria-label="Tecnologias usadas">
+            <span class="tag">Java</span>
+            <span class="tag">JavaFX</span>
+          </div>
+          <div class="project-footer">
+            <a href="https://github.com/Thiago-EAJDS/Java" target="_blank" rel="noopener noreferrer" class="btn btn-primary" aria-label="Ver código fonte do Simulador de Trânsito">
+              Código
+              <svg width="12" height="12" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+                <path d="M2 10L10 2M4 2h6v6"/>
+              </svg>
+            </a>
+          </div>
+        </article>
+
+      </div><!-- /projects-grid -->
+
+      <!-- Projects Summary -->
+      <div class="projects-summary fade-in" role="complementary" aria-label="Resumo dos projetos">
+        <div class="projects-summary-info">
+          <strong>Resumo de Tecnologias Utilizadas</strong>
+          <span>Principais stacks nos projetos desenvolvidos</span>
+        </div>
+        <div class="projects-summary-techs" aria-label="Tecnologias dos projetos">
+          <span class="tag">Firebase</span>
+          <span class="tag">HTML5</span>
+          <span class="tag">CSS3</span>
+          <span class="tag">JavaScript</span>
+          <span class="tag">Java</span>
+          <span class="tag">JavaFX</span>
+          <span class="tag">API Própria</span>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       SECTION: EXPERIÊNCIAS
+       ========================================== -->
+  <section id="experiencias" class="section" aria-label="Experiências profissionais">
+    <div class="container">
+      <div class="section-header">
+        <span class="section-label">Minha trajetória</span>
+        <h2 class="section-title">Experiências <span>Profissionais</span></h2>
+        <div class="section-divider" aria-hidden="true"></div>
+      </div>
+
+      <div class="exp-layout">
+
+        <!-- Timeline -->
+        <div class="exp-timeline" aria-label="Linha do tempo profissional">
+
+          <!-- Exp Item 1 -->
+          <div class="exp-item fade-in">
+            <div class="exp-dot-wrap" aria-hidden="true">
+              <span class="exp-dot current"></span>
+            </div>
+            <div class="exp-content">
+              <div class="exp-top">
+                <h3 class="exp-role">Desenvolvedor Full Stack</h3>
+                <span class="exp-badge">Atual</span>
+              </div>
+              <p class="exp-company">Autônomo</p>
+              <p class="exp-meta">Teresina, PI · 2025 – Presente</p>
+              <p class="exp-desc">
+                Desenvolvimento de aplicações web modernas utilizando React.js, Node.js e TypeScript.
+                Responsável por implementar novas funcionalidades e otimizar a performance
+                das aplicações existentes.
+              </p>
+              <ul class="exp-bullets" aria-label="Responsabilidades">
+                <li>Desenvolvimento de interfaces responsivas com React e TypeScript</li>
+                <li>Criação de APIs RESTful com Node.js</li>
+                <li>Integração com bancos de dados relacionais e NoSQL</li>
+              </ul>
+              <div class="exp-tags" aria-label="Tecnologias">
+                <span class="tag">React</span>
+                <span class="tag">Node.js</span>
+                <span class="tag">TypeScript</span>
+                <span class="tag">Git</span>
+              </div>
+            </div>
+          </div>
+
+        </div><!-- /exp-timeline -->
+
+        <!-- Sidebar -->
+        <aside class="exp-sidebar" aria-label="Certificações e competências">
+
+          <!-- Certifications -->
+          <div class="exp-sidebar-card fade-in">
+            <h3 class="exp-sidebar-title">
+              <span class="dot" aria-hidden="true"></span>
+              Certificações &amp; Cursos
+            </h3>
+            <div class="cert-item">
+              <div class="cert-icon" aria-hidden="true">📋</div>
+              <div class="cert-info">
+                <strong>AWS Academy Machine Learning Foundations</strong>
+                <span>2026</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon" aria-hidden="true">📋</div>
+              <div class="cert-info">
+                <strong>AWS Academy Machine Learning for Natural Language Processing</strong>
+                <span>2026</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon" aria-hidden="true">📋</div>
+              <div class="cert-info">
+                <strong>AWS Academy Cloud Foundations</strong>
+                <span>2026</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon" aria-hidden="true">📋</div>
+              <div class="cert-info">
+                <strong>AWS Academy Cloud Security Foundations</strong>
+                <span>2026</span>
+              </div>
+            </div>
+            <div class="cert-item">
+              <div class="cert-icon" aria-hidden="true">📋</div>
+              <div class="cert-info">
+                <strong>AWS Academy Cloud Architecting</strong>
+                <span>2026</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Competências -->
+          <div class="exp-sidebar-card fade-in">
+            <h3 class="exp-sidebar-title">
+              <span class="dot" aria-hidden="true"></span>
+              Competências Principais
+            </h3>
+            <div class="comp-item">
+              <p class="comp-label">Frontend</p>
+              <div class="comp-tags">
+                <span class="tag">React</span>
+                <span class="tag">JavaFX</span>
+              </div>
+            </div>
+            <div class="comp-item">
+              <p class="comp-label">Backend</p>
+              <div class="comp-tags">
+                <span class="tag">Node.js</span>
+                <span class="tag">PostgreSQL</span>
+              </div>
+            </div>
+            <div class="comp-item">
+              <p class="comp-label">Ferramentas</p>
+              <div class="comp-tags">
+                <span class="tag">Git</span>
+                <span class="tag">AWS</span>
+              </div>
+            </div>
+            <div class="comp-item">
+              <p class="comp-label">Metodologias</p>
+              <div class="comp-tags">
+                <span class="tag">Clean Code</span>
+              </div>
+            </div>
+          </div>
+
+        </aside>
+      </div><!-- /exp-layout -->
+    </div>
+  </section>
+
+
+  <!-- ==========================================
+       FOOTER
+       ========================================== -->
+  <footer role="contentinfo">
+    <div class="container">
+      <div class="footer-content">
+        <span class="footer-logo">&lt; <span>TE</span> /&gt;</span>
+        <nav class="footer-links" aria-label="Links do rodapé">
+          <a href="#inicio">Início</a>
+          <a href="#sobre">Sobre</a>
+          <a href="#tecnologias">Tecnologias</a>
+          <a href="#projetos">Projetos</a>
+          <a href="#experiencias">Experiências</a>
+        </nav>
+        <p class="footer-copy">
+          © 2025 Thiago Emanuel Araújo Jorge de Sá · Todos os direitos reservados
+        </p>
+      </div>
+    </div>
+  </footer>
+
+</div><!-- /page-content -->
+
+<!-- JavaScript -->
+<script src="js/main.js"></script>
+
 </body>
 </html>

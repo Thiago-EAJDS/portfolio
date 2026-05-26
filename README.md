@@ -1,6 +1,6 @@
 # 🧑‍💻 Portfólio — Thiago Araújo
 
-> Site de portfólio pessoal desenvolvido com HTML5, CSS3 e JavaScript puro. Hospedado na Vercel.
+> Site de portfólio pessoal desenvolvido com HTML5, CSS3 e JavaScript. Hospedado na Vercel.
 
 🔗 **[portfolio-thiagoaraujo.vercel.app](https://portfolio-thiagoaraujo.vercel.app/)**
 
@@ -8,17 +8,17 @@
 
 ## 📋 Sobre o Projeto
 
-Este é o meu portfólio pessoal de **Thiago Emanuel Araújo Jorge de Sá**.
+Este é o meu portfólio pessoal (**Thiago Emanuel Araújo Jorge de Sá**).
 
 ---
 
 ## 📄 Seções
 
-- **Início** — Apresentação, foto de perfil, status de disponibilidade e links sociais
-- **Sobre Mim** — Bio, competências organizadas por categoria e links de contato direto
-- **Tecnologias & Habilidades** — Cards filtráveis por categoria com indicador de nível (Iniciante / Intermediário / Avançado)
-- **Projetos** — Cards de projetos filtráveis por tipo com descrição, destaques e link para o repositório
-- **Experiências Profissionais** — Linha do tempo profissional, certificações AWS e competências principais
+- **Início** — Apresentação, foto de perfil, status de disponibilidade e links sociais.
+- **Sobre Mim** — Bio, competências organizadas por categoria e links de contato direto.
+- **Tecnologias & Habilidades** — Cards filtráveis por categoria com indicador de nível.
+- **Projetos** — Cards de projetos filtráveis por tipo com descrição, destaques e link para o repositório.
+- **Experiências Profissionais** — Linha do tempo profissional e certificações.
 
 ---
 

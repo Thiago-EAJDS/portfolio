@@ -700,60 +700,7 @@
       <!-- Tech Summary Table -->
       <div class="tech-summary fade-in" role="complementary" aria-label="Resumo das tecnologias">
         <h3 class="tech-summary-title">Visão Geral Rápida</h3>
-
-        <div class="tech-summary-grid">
-          <div class="tech-summary-group">
-            <h4>Frontend</h4>
-            <div class="tech-summary-tags">
-              <span class="tag">HTML5</span>
-              <span class="tag">CSS3</span>
-              <span class="tag">JavaScript</span>
-              <span class="tag">React</span>
-              <span class="tag">JavaFX</span>
-              <span class="tag">Flutter</span>
-            </div>
-          </div>
-          <div class="tech-summary-group">
-            <h4>Backend</h4>
-            <div class="tech-summary-tags">
-              <span class="tag">Node.js</span>
-              <span class="tag">Python</span>
-              <span class="tag">Java</span>
-              <span class="tag">C#</span>
-              <span class="tag">C / C++</span>
-              <span class="tag">Flask</span>
-              <span class="tag">Dart</span>
-            </div>
-          </div>
-          <div class="tech-summary-group">
-            <h4>Database</h4>
-            <div class="tech-summary-tags">
-              <span class="tag">SQLite</span>
-              <span class="tag">Firebase</span>
-              <span class="tag">MySQL</span>
-              <span class="tag">PostgreSQL</span>
-            </div>
-          </div>
-          <div class="tech-summary-group">
-            <h4>Ferramentas</h4>
-            <div class="tech-summary-tags">
-              <span class="tag">Git</span>
-              <span class="tag">GitHub</span>
-              <span class="tag">Figma</span>
-              <span class="tag">Selenium</span>
-              <span class="tag">Postman</span>
-              <span class="tag">Blender</span>
-              <span class="tag">Unity</span>
-            </div>
-          </div>
-          <div class="tech-summary-group">
-            <h4>Cloud</h4>
-            <div class="tech-summary-tags">
-              <span class="tag">AWS</span>
-              <span class="tag">Linux</span>
-            </div>
-          </div>
-        </div>
+        <div class="tech-summary-grid" id="tech-summary-grid"></div>
 
         <!-- Stats -->
         <div class="tech-stats-row" aria-label="Estatísticas">
@@ -762,7 +709,7 @@
             <span>Ano de<br>Experiência</span>
           </div>
           <div class="tech-stat">
-            <strong data-counter="23">0</strong>
+            <strong id="tech-count" data-counter="0">0</strong>
             <span>Tecnologias<br>Dominadas</span>
           </div>
           <div class="tech-stat">
@@ -771,8 +718,6 @@
           </div>
         </div>
       </div>
-
-    </div>
   </section>
   <!-- ==========================================
        SECTION: PROJETOS

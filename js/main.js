@@ -265,3 +265,44 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggleBtn = document.getElementById('theme-toggle');
   if (toggleBtn) toggleBtn.addEventListener('click', toggleTheme);
 });
+
+  // Tech-Summary Function
+(function () {
+  const labelMap = {
+    frontend: "Frontend",
+    backend:  "Backend",
+    database: "Database",
+    tools:    "Ferramentas",
+    cloud:    "Cloud",
+  };
+
+  const groups = {};
+
+  document.querySelectorAll(".tech-card[data-category]").forEach(card => {
+    const cat  = card.dataset.category;
+    const name = card.querySelector(".tech-name")?.textContent.trim();
+    if (!name) return;
+    if (!groups[cat]) groups[cat] = [];
+    groups[cat].push(name);
+  });
+
+  const grid = document.getElementById("tech-summary-grid");
+
+  Object.entries(labelMap).forEach(([key, label]) => {
+    if (!groups[key]?.length) return;
+
+    const div = document.createElement("div");
+    div.className = "tech-summary-group";
+    div.innerHTML = `
+      <h4>${label}</h4>
+      <div class="tech-summary-tags">
+        ${groups[key].map(n => `<span class="tag">${n}</span>`).join("")}
+      </div>`;
+    grid.appendChild(div);
+  });
+
+  // Atualiza o contador de tecnologias automaticamente
+  const total = document.querySelectorAll(".tech-card[data-category]").length;
+  const counter = document.getElementById("tech-count");
+  if (counter) counter.dataset.counter = total;
+})();

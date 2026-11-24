@@ -3,6 +3,9 @@
    Portfólio Thiago Emanuel
    ============================================ */
 
+import { initVideoDialog } from './feedback.js';
+import { renderProjects, renderTechnologies } from './render.js';
+
 /* ---- Theme Toggle ---- */
 function initTheme() {
   const saved = localStorage.getItem('theme') || 'dark';
@@ -137,10 +140,6 @@ function initBackground() {
     resize();
     createCircles();
   }, { passive: true });
-
-  // Re-render on theme change
-  const observer = new MutationObserver(() => {});
-  observer.observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
 }
 
 /* ---- Scroll fade-in observer ---- */
@@ -156,7 +155,7 @@ function initScrollReveal() {
         // Stagger delay based on index within parent
         const siblings = [...entry.target.parentElement.querySelectorAll('.fade-in')];
         const idx = siblings.indexOf(entry.target);
-        entry.target.style.transitionDelay = `${idx * 80}ms`;
+        entry.target.style.transitionDelay = `${Math.min(idx, 12) * 80}ms`;
         entry.target.classList.add('visible');
         observer.unobserve(entry.target);
       }
@@ -166,37 +165,18 @@ function initScrollReveal() {
   els.forEach(el => observer.observe(el));
 }
 
-/* ---- Tech filter tabs ---- */
-function initTechFilter() {
-  const tabs = document.querySelectorAll('#tecnologias .filter-tab');
-  const cards = document.querySelectorAll('.tech-card');
+/* ---- Filter tabs (tecnologias e projetos) ---- */
+function initFilter(sectionId, cardSelector) {
+  const tabs = document.querySelectorAll(`#${sectionId} .filter-tab`);
+  const cards = document.querySelectorAll(`#${sectionId} ${cardSelector}`);
 
   tabs.forEach(tab => {
     tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      const filter = tab.dataset.filter;
-
-      cards.forEach(card => {
-        const match = filter === 'all' || card.dataset.category === filter;
-        card.setAttribute('data-hidden', !match);
-        card.style.display = match ? '' : 'none';
+      tabs.forEach(t => {
+        t.classList.toggle('active', t === tab);
+        t.setAttribute('aria-selected', String(t === tab));
       });
-    });
-  });
-}
-
-/* ---- Projects filter tabs ---- */
-function initProjectFilter() {
-  const tabs = document.querySelectorAll('#projetos .filter-tab');
-  const cards = document.querySelectorAll('.project-card');
-
-  tabs.forEach(tab => {
-    tab.addEventListener('click', () => {
-      tabs.forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
       const filter = tab.dataset.filter;
-
       cards.forEach(card => {
         const match = filter === 'all' || card.dataset.category === filter;
         card.style.display = match ? '' : 'none';
@@ -252,12 +232,17 @@ function initSmoothScroll() {
 
 /* ---- INIT ---- */
 document.addEventListener('DOMContentLoaded', () => {
+  // Os cards precisam existir antes dos filtros, contadores e animações
+  renderTechnologies();
+  renderProjects();
+
   initTheme();
   initNavbar();
   initBackground();
   initScrollReveal();
-  initTechFilter();
-  initProjectFilter();
+  initFilter('tecnologias', '.tech-card');
+  initFilter('projetos', '.project-card');
+  initVideoDialog();
   initCounters();
   initSmoothScroll();
 
@@ -265,44 +250,3 @@ document.addEventListener('DOMContentLoaded', () => {
   const toggleBtn = document.getElementById('theme-toggle');
   if (toggleBtn) toggleBtn.addEventListener('click', toggleTheme);
 });
-
-  // Tech-Summary Function
-(function () {
-  const labelMap = {
-    frontend: "Frontend",
-    backend:  "Backend",
-    database: "Database",
-    tools:    "Ferramentas",
-    cloud:    "Cloud",
-  };
-
-  const groups = {};
-
-  document.querySelectorAll(".tech-card[data-category]").forEach(card => {
-    const cat  = card.dataset.category;
-    const name = card.querySelector(".tech-name")?.textContent.trim();
-    if (!name) return;
-    if (!groups[cat]) groups[cat] = [];
-    groups[cat].push(name);
-  });
-
-  const grid = document.getElementById("tech-summary-grid");
-
-  Object.entries(labelMap).forEach(([key, label]) => {
-    if (!groups[key]?.length) return;
-
-    const div = document.createElement("div");
-    div.className = "tech-summary-group";
-    div.innerHTML = `
-      <h4>${label}</h4>
-      <div class="tech-summary-tags">
-        ${groups[key].map(n => `<span class="tag">${n}</span>`).join("")}
-      </div>`;
-    grid.appendChild(div);
-  });
-
-  // Atualiza o contador de tecnologias automaticamente
-  const total = document.querySelectorAll(".tech-card[data-category]").length;
-  const counter = document.getElementById("tech-count");
-  if (counter) counter.dataset.counter = total;
-})();

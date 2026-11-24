@@ -14,21 +14,21 @@ Este é o meu portfólio pessoal (**Thiago Emanuel Araújo Jorge de Sá**).
 
 ## 📄 Seções
 
-- **Início** — Apresentação, foto de perfil, status de disponibilidade e links sociais.
-- **Sobre Mim** — Bio, competências organizadas por categoria e links de contato direto.
-- **Tecnologias & Habilidades** — Cards filtráveis por categoria com indicador de nível.
-- **Projetos** — Cards de projetos filtráveis por tipo com descrição, destaques e link para o repositório.
-- **Experiências Profissionais** — Linha do tempo profissional e certificações.
+- **Início** — Apresentação, foto e disponibilidade.
+- **Projetos** — Lista filtrável com descrição, código e vídeo. Repositórios privados exibem um aviso.
+- **Tecnologias** — Nível por tecnologia e ligação com os projetos em que foi usada.
+- **Experiências** — Trajetória profissional e certificações.
+- **Sobre mim e Contato** — Bio e canais de contato.
 
 ---
 
 ## ✨ Funcionalidades
 
 - 🌙 Alternância de tema claro/escuro com persistência via `localStorage`
-- 🎨 Canvas animado no background
+- 🔗 Seleção de projetos por tecnologia
 - 📱 Layout responsivo (mobile-first)
 - 🔍 Filtros de tecnologias e projetos por categoria
-- ⚡ Animações de entrada com `fade-in` por scroll
+- 🔒 Aviso temporário para repositórios privados e modal de vídeo
 
 ---
 
@@ -38,11 +38,23 @@ Este é o meu portfólio pessoal (**Thiago Emanuel Araújo Jorge de Sá**).
 |---|---|
 | HTML5 | Estrutura e semântica do site |
 | CSS3 | Estilização, variáveis CSS, responsividade |
-| JavaScript (ES6+) | Interatividade, canvas, tema, filtros |
+| JavaScript (ES Modules) | Dados, renderização, tema, filtros |
 | Vercel | Hospedagem e deploy contínuo |
 
 ---
+
+## 🗂️ Como atualizar
+
+- `js/data/technologies.js` — nome, categoria e nível de cada tecnologia, definidos uma única vez.
+- `js/data/projects.js` — projetos, que usam os IDs das tecnologias. Preencha `youtubeId` para exibir o vídeo.
+- `js/data/experience.js` — experiências e certificações.
+
+Para rodar localmente (módulos JS não funcionam abrindo o arquivo direto):
+
+```bash
+python -m http.server 8000
 ```
+
 ---
 
 ## 📬 Contato
@@ -56,4 +68,4 @@ Este é o meu portfólio pessoal (**Thiago Emanuel Araújo Jorge de Sá**).
 
 ---
 
-<p align="center">© 2025 Thiago Emanuel Araújo Jorge de Sá · Todos os direitos reservados</p>
+<p align="center">© 2026 Thiago Emanuel Araújo Jorge de Sá · Todos os direitos reservados</p>

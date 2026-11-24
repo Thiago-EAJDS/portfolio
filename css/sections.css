@@ -203,11 +203,6 @@
   display: none;
 }
 
-.tech-icon {
-  font-size: 28px;
-  line-height: 1;
-}
-
 .tech-name {
   font-family: 'Syne', sans-serif;
   font-size: 12px;
@@ -695,36 +690,30 @@
 /* Certs */
 .cert-item {
   display: flex;
-  align-items: center;
-  gap: 12px;
-  padding: 10px 0;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 20px;
+  padding: 12px 0;
   border-bottom: 1px solid var(--border);
 }
 
-.cert-item:last-child { border-bottom: none; }
-
-.cert-icon {
-  width: 32px;
-  height: 32px;
-  background: var(--accent-subtle);
-  border-radius: 8px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  font-size: 14px;
-  flex-shrink: 0;
+.cert-item:last-child {
+  border-bottom: none;
+  padding-bottom: 0;
 }
 
-.cert-info strong {
+.cert-name {
   font-size: 13px;
+  line-height: 1.45;
   color: var(--text-primary);
-  display: block;
   font-weight: 600;
 }
 
-.cert-info span {
-  font-size: 11px;
-  color: var(--text-muted);
+.cert-year {
+  flex-shrink: 0;
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent-light);
 }
 
 /* Competencias */

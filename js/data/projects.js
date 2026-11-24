@@ -61,7 +61,7 @@ export const PROJECTS = [
   {
     title: 'SoundSearch',
     category: 'mobile',
-    status: 'Projeto em equipe',
+    status: 'Concluído',
     description:
       'Aplicativo de descoberta musical para a rádio comunitária universitária do ICEV. Os ouvintes buscam músicas, escutam prévias e montam uma lista de sugestões.',
     highlights: [

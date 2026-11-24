@@ -9,7 +9,7 @@ const byId = (id) => document.getElementById(id);
 const tag = (name) => el('span', { class: 'tag' }, name);
 
 /* ---- Tecnologias ---- */
-function techCard({ name, icon, category, level }) {
+function techCard({ name, category, level }) {
   const label = LEVELS[level];
   const dots = [1, 2, 3, 4, 5].map((step) => {
     const filled = step <= level ? ' filled' : '';
@@ -19,7 +19,6 @@ function techCard({ name, icon, category, level }) {
   return el(
     'article',
     { class: 'tech-card fade-in', 'data-category': category, role: 'listitem', 'aria-label': `${name} — ${label}` },
-    el('span', { class: 'tech-icon', 'aria-hidden': 'true' }, icon),
     el('span', { class: 'tech-name' }, name),
     el('div', { class: 'tech-level', 'aria-label': `Nível: ${label}` }, dots),
     el('span', { class: 'tech-level-label' }, label),

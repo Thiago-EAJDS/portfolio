@@ -34,7 +34,7 @@ Portfólio pessoal de Thiago Emanuel Araújo Jorge de Sá, desenvolvido com HTML
 - **E-mail:** [thiagoeajds@gmail.com](mailto:thiagoeajds@gmail.com)
 - **LinkedIn:** [linkedin.com/in/thiago-dev-952368452](https://www.linkedin.com/in/thiago-dev-952368452/)
 - **GitHub:** [github.com/Thiago-EAJDS](https://github.com/Thiago-EAJDS)
-- **WhatsApp:** [wa.me/5586995214866](https://wa.me/5586995214866)
+- **Instagram:** [@thiagoeajds.dev](https://www.instagram.com/thiagoeajds.dev/)
 
 ---
 
